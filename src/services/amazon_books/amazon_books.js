@@ -22,7 +22,8 @@ function parseSrcset(srcset) {
 
 async function scrape(isbn) {
   const browser = await puppeteer.launch({
-    defaultViewport: { width: 800, height: 600, deviceScaleFactor: 3 }
+    defaultViewport: { width: 800, height: 600, deviceScaleFactor: 3 },
+    args: ['--no-sandbox']
   });
   const page = await browser.newPage();
   await page.goto(amazonIsbnSearchUrl(isbn), {
