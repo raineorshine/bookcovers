@@ -24,6 +24,23 @@ bookcovers
   .then(results => ...);
 ```
 
+Specify options for puppeteer (amazon) or/and request (google/openlibrary) requests:
+
+```js
+const bookcovers = require("bookcovers");
+
+options = {
+  amazon: { /* options for puppeter.launch() */ },
+  google: { /* options for request(url, options) */ },
+  openLibrary: { /* options for request(url, options) */ },
+  type: 'amazon/google/openLibrary' /* for doing request to single provider */
+}
+
+bookcovers
+  .withIsbn("9781570273148", options)
+  .then(results => ...);
+```
+
 As a cli:
 
 ```bash
